@@ -1,4 +1,6 @@
-import { Header } from './Components/Header'
+import Header from './Components/Header'
+import Footer from './Components/Footer'
+
 import GlobalStyle from './styles/GlobalStyle'
 
 function App() {
@@ -6,6 +8,7 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
+      <Footer />
     </>
   )
 }

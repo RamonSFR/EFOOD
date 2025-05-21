@@ -13,6 +13,7 @@ export const HeaderContainer = styled.header`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     img {
       width: 125px;

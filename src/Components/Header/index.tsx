@@ -3,7 +3,7 @@ import * as S from './styles'
 
 import logo from '../../assets/images/icons/logo.png'
 
-export const Header = () => (
+const Header = () => (
   <S.HeaderContainer>
     <Container>
       <h1>
@@ -16,3 +16,5 @@ export const Header = () => (
     </Container>
   </S.HeaderContainer>
 )
+
+export default Header
