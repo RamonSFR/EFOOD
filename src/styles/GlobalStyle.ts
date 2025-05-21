@@ -21,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  body {
+    background-color: ${colors.beige2};
+  }
+
   .container {
     max-width: 1024px;
     width: 100%;
