@@ -1,23 +1,9 @@
 import styled from 'styled-components'
-import { colors as c, Container } from '../../styles/GlobalStyle'
+import { colors as c } from '../../styles/GlobalStyle'
 
 export const Footer = styled.footer`
-  width: 100vw;
+  width: 100%;
   background-color: ${c.beige2};
-
-  ${Container} {
-    padding: 40px 0;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
-    p {
-      color: ${c.red};
-      font-size: 12px;
-      text-align: center;
-      margin-top: 80px;
-    }
-  }
 `
 
 export const Socials = styled.ul`
@@ -30,4 +16,18 @@ export const SocialsItem = styled.li`
   width: 24px;
   height: 24px;
   cursor: pointer;
+`
+
+export const FooterSection = styled.section`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 0;
+
+  p {
+    color: ${c.red};
+    font-size: 12px;
+    text-align: center;
+    margin-top: 80px;
+  }
 `

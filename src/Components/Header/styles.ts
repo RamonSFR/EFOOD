@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 
 import bg from '../../assets/images/banners/headerBg.png'
-import { colors as c, Container } from '../../styles/GlobalStyle'
+import { colors as c } from '../../styles/GlobalStyle'
 
 export const HeaderContainer = styled.header`
   background-image: url(${bg});
-  width: 100vw;
-  height: 100%;
+  width: 100%;
   padding: 64px 0 40px 0;
 
-  ${Container} {
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;

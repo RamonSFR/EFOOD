@@ -4,11 +4,11 @@ import * as S from './styles'
 
 export type Props = {
   children: JSX.Element
-  style?: 'primary' | 'secondary'
+  type?: 'primary' | 'secondary'
 }
 
-const Btn = ({ children, style = 'primary' }: Props) => (
-  <S.Button style={style}>{children}</S.Button>
+const Btn = ({ children, type = 'primary' }: Props) => (
+  <S.Button type={type}>{children}</S.Button>
 )
 
 export default Btn
