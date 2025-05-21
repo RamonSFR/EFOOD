@@ -7,7 +7,7 @@ export const ListContainer = styled.div`
   padding: 80px 0 120px 0;
 `
 
-export const ListItems = styled.div`
+export const ListItems = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 48px;
