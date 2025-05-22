@@ -7,19 +7,9 @@ export const HeaderContainer = styled.header`
   background-image: url(${bg});
   width: 100%;
   padding: 64px 0;
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 125px;
-      height: 58px;
-      cursor: pointer;
-    }
-  }
+  display: flex;
+  justify-content: center;
+  position: relative;
 `
 
 export const Title = styled.h2`
@@ -28,5 +18,31 @@ export const Title = styled.h2`
   font-weight: 900;
   line-height: 100%;
   text-align: center;
-  margin-top: 112px;
+  margin-top: 165px;
+`
+
+export const HeaderLogo = styled.h1`
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+
+  img {
+    width: 125px;
+    height: 58px;
+  }
+`
+
+export const HeaderNav = styled.nav`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+
+  p {
+    color: ${c.red};
+    font-size: 18px;
+    font-weight: 900;
+  }
 `

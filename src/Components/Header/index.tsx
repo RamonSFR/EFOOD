@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import logo from '../../assets/images/icons/logo.png'
 
 import * as S from './styles'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   const location = useLocation()
@@ -10,22 +11,36 @@ const Header = () => {
   const isHomePage = location.pathname === '/'
 
   return (
-  <S.HeaderContainer>
-    <div className="container">
-      <h1 onClick={() => navigate('/')}>
-        <img draggable="false" src={logo} alt="EFOOD" />
-      </h1>
-      {isHomePage ? (
-        <S.Title>
-          Live gastronomic experiences <br />
-          at the confort of your house
-        </S.Title>
-      ) : (
-        ''
-      )}
-    </div>
-  </S.HeaderContainer>
-)
+    <S.HeaderContainer>
+        {isHomePage ? (
+          <>
+            <S.HeaderLogo>
+              <img draggable="false" src={logo} alt="EFOOD" />
+            </S.HeaderLogo>
+            <S.Title>
+              Live gastronomic experiences <br />
+              at the confort of your house
+            </S.Title>
+          </>
+        ) : (
+          <>
+            <S.HeaderLogo onClick={() => navigate('/')}>
+              <img draggable="false" src={logo} alt="EFOOD" />
+            </S.HeaderLogo>
+            <S.HeaderNav>
+              <li>
+                <Link to="/">
+                  <p>Restaurants</p>
+                </Link>
+              </li>
+              <li>
+                <p><span>0 Product(s) in your Shopping Cart</span></p>
+              </li>
+            </S.HeaderNav>
+          </>
+        )}
+    </S.HeaderContainer>
+  )
 }
 
 export default Header
