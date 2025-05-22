@@ -1,4 +1,5 @@
 import pizzaImg from '../../assets/images/misc/pizza.png'
+import Hero from '../Hero'
 import Plate from '../Plate'
 
 import * as S from './styles'
@@ -55,23 +56,26 @@ const mock = [
 ]
 
 const PlateList = () => (
-  <S.ListContainer>
-    <div className="container">
-      <S.ListItems>
-        {mock.map((item) => (
-          <li key={item.id}>
-            <Plate
-              id={item.id}
-              image={item.image}
-              title={item.title}
-              price={item.price}
-              description={item.description}
-            />
-          </li>
-        ))}
-      </S.ListItems>
-    </div>
-  </S.ListContainer>
+  <>
+    <Hero />
+    <S.ListContainer>
+      <div className="container">
+        <S.ListItems>
+          {mock.map((item) => (
+            <li key={item.id}>
+              <Plate
+                id={item.id}
+                image={item.image}
+                title={item.title}
+                price={item.price}
+                description={item.description}
+              />
+            </li>
+          ))}
+        </S.ListItems>
+      </div>
+    </S.ListContainer>
+  </>
 )
 
 export default PlateList
