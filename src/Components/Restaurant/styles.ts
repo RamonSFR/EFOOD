@@ -12,6 +12,7 @@ export const Card = styled.div`
     height: 217px;
     object-fit: cover;
     display: block;
+    cursor: pointer;
   }
 
   ${Button} {

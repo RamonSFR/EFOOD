@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import star from '../../assets/images/icons/starIco.png'
 
 import * as S from './styles'
@@ -12,9 +14,14 @@ type Props = {
 }
 
 const Restaurant = ({ description, image, title, rating }: Props) => {
+  const navigate = useNavigate()
+  const goToProduct = () => {
+    navigate('/restaurant')
+  }
+
   return (
     <S.Card>
-      <img src={image} alt="sushi" />
+      <img src={image} alt="sushi" onClick={goToProduct}/>
       <S.Infos>
         <div>
           <S.Title>{title}</S.Title>
@@ -25,7 +32,7 @@ const Restaurant = ({ description, image, title, rating }: Props) => {
         <S.Description>
           {description}
         </S.Description>
-        <Button type="secondary">
+        <Button onClick={goToProduct} type="secondary">
           <>View More</>
         </Button>
       </S.Infos>
