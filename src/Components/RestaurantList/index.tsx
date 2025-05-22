@@ -40,14 +40,13 @@ const mock = [
   }
 ]
 
-const List = () => (
+const RestaurantList = () => (
   <S.ListContainer>
     <div className="container">
       <S.ListItems>
         {mock.map((item) => (
-          <li>
+          <li key={item.id}>
             <Restaurant
-              key={item.id}
               id={item.id}
               title={item.title}
               image={item.image}
@@ -61,4 +60,4 @@ const List = () => (
   </S.ListContainer>
 )
 
-export default List
+export default RestaurantList

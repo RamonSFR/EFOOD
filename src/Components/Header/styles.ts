@@ -6,7 +6,7 @@ import { colors as c } from '../../styles/GlobalStyle'
 export const HeaderContainer = styled.header`
   background-image: url(${bg});
   width: 100%;
-  padding: 64px 0 40px 0;
+  padding: 64px 0;
 
   .container {
     display: flex;
@@ -17,7 +17,7 @@ export const HeaderContainer = styled.header`
     img {
       width: 125px;
       height: 58px;
-      margin-bottom: 136px;
+      cursor: pointer;
     }
   }
 `
@@ -28,4 +28,5 @@ export const Title = styled.h2`
   font-weight: 900;
   line-height: 100%;
   text-align: center;
+  margin-top: 112px;
 `

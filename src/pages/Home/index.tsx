@@ -1,5 +1,5 @@
-import List from "../../Components/List"
+import RestaurantList from "../../Components/RestaurantList"
 
-const Home = () => <List />
+const Home = () => <RestaurantList />
 
 export default Home
