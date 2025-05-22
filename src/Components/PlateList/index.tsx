@@ -27,6 +27,30 @@ const mock = [
     price: 20,
     description:
       'The classic Margherita: juicy tomato sauce, melted mozzarella, fresh basil and a touch of olive oil. Flavor and simplicity!'
+  },
+  {
+    id: 4,
+    title: 'Pizza Marguerita',
+    image: pizzaImg,
+    price: 20,
+    description:
+      'The classic Margherita: juicy tomato sauce, melted mozzarella, fresh basil and a touch of olive oil. Flavor and simplicity!'
+  },
+  {
+    id: 5,
+    title: 'Pizza Marguerita',
+    image: pizzaImg,
+    price: 20,
+    description:
+      'The classic Margherita: juicy tomato sauce, melted mozzarella, fresh basil and a touch of olive oil. Flavor and simplicity!'
+  },
+  {
+    id: 6,
+    title: 'Pizza Marguerita',
+    image: pizzaImg,
+    price: 20,
+    description:
+      'The classic Margherita: juicy tomato sauce, melted mozzarella, fresh basil and a touch of olive oil. Flavor and simplicity!'
   }
 ]
 

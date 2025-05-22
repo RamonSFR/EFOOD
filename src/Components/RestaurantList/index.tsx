@@ -37,6 +37,22 @@ const mock = [
     rating: 4.3,
     description:
       'La Dolce Vita Trattoria brings authentic Italian cuisine to you! Enjoy homemade pasta, delicious pizzas and incredible risottos, all in the comfort of your own home. Fast delivery, well-packaged dishes and unforgettable flavors. Order now!'
+  },
+  {
+    id: 5,
+    title: 'Hioki Sushi',
+    image: sushiImg,
+    rating: 4.9,
+    description:
+      'Order the best Japanese cuisine in the comfort of your home! Fresh sushi, delicious sashimi and hot, irresistible dishes. Fast delivery, careful packaging and guaranteed quality. Experience Japan without leaving home with our delivery service!'
+  },
+  {
+    id: 6,
+    title: 'La Dolce Vita Trattoria',
+    image: pastaImg,
+    rating: 4.3,
+    description:
+      'La Dolce Vita Trattoria brings authentic Italian cuisine to you! Enjoy homemade pasta, delicious pizzas and incredible risottos, all in the comfort of your own home. Fast delivery, well-packaged dishes and unforgettable flavors. Order now!'
   }
 ]
 
