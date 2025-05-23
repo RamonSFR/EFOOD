@@ -4,6 +4,7 @@ import star from '../../assets/images/icons/starIco.png'
 
 import * as S from './styles'
 import { Button } from '../Button/styles'
+import filterDescription from '../../utils/functions/filterDescription'
 
 type Props = {
   id: number
@@ -13,22 +14,16 @@ type Props = {
   image: string
 }
 
-const Restaurant = ({ description, image, title, rating }: Props) => {
+const Restaurant = ({ description, image, title, rating, id }: Props) => {
   const navigate = useNavigate()
   const goToProduct = () => {
-    navigate('/restaurant')
-  }
-
-  const filterDescription = (text: string) => {
-    if (text.length > 198) {
-      return text.slice(0, 195) + '...'
-    }
-
-    return text
+    navigate(`restaurant/${id}`)
   }
 
   return (
-    <S.Card>
+    <S.Card
+      title={`Click here to get see more of the restaurant ${title}`}
+    >
       <img src={image} alt="sushi" onClick={goToProduct} />
       <S.Infos>
         <div>
@@ -37,7 +32,7 @@ const Restaurant = ({ description, image, title, rating }: Props) => {
             {rating} <img src={star} alt="stars" />
           </span>
         </div>
-        <S.Description>{filterDescription(description)}</S.Description>
+        <S.Description>{filterDescription(description, 198)}</S.Description>
         <Button onClick={goToProduct} type="secondary">
           <>View More</>
         </Button>

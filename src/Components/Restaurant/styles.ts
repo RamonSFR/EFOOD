@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { colors as c } from '../../styles/GlobalStyle'
 import { Button } from '../Button/styles'
 

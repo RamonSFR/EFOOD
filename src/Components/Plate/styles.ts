@@ -15,6 +15,9 @@ export const Card = styled.div`
 
   img {
     display: block;
+    width: 100%;
+    height: 167px;
+    object-fit: cover;
   }
 `
 

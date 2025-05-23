@@ -1,14 +1,20 @@
-import bg from '../../assets/images/banners/pastaBanner.png'
-
 import * as S from './styles'
 
-const Hero = () => (
-  <S.HeroContainer style={{ backgroundImage: `url(${bg})` }}>
-    <div className="container">
-      <S.Category>Italian</S.Category>
-      <S.Title>La Dolce Vita Trattoria</S.Title>
-    </div>
-  </S.HeroContainer>
-)
+type Props = {
+  title: string
+  type: string
+  image: string
+}
+
+const Hero = ({ title, type, image }: Props) => {
+  return (
+    <S.HeroContainer style={{ backgroundImage: `url(${image})` }}>
+      <div className="container">
+        <S.Category>{type}</S.Category>
+        <S.Title>{title}</S.Title>
+      </div>
+    </S.HeroContainer>
+  )
+}
 
 export default Hero

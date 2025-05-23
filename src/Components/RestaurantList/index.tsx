@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { BeatLoader } from 'react-spinners'
 
 import Restaurant from '../Restaurant'
 
 import * as S from './styles'
+import { colors as c } from '../../styles/GlobalStyle'
 
 const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([])
@@ -13,6 +15,16 @@ const RestaurantList = () => {
       .then((res) => res.json())
       .then((res) => setRestaurants(res))
   }, [])
+
+  if (!restaurants.length) {
+    return (
+      <S.ListContainer>
+        <div className="container">
+          <BeatLoader color={c.red}>Loading...</BeatLoader>
+        </div>
+      </S.ListContainer>
+    )
+  }
 
   return (
     <S.ListContainer>

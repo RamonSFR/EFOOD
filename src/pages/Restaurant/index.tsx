@@ -1,5 +1,7 @@
 import PlateList from '../../Components/PlateList'
 
-const Restaurant = () => <PlateList />
+const Restaurant = () => {
+  return <PlateList />
+}
 
 export default Restaurant

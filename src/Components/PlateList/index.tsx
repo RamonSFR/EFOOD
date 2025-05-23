@@ -1,81 +1,64 @@
-import pizzaImg from '../../assets/images/misc/pizza.png'
+import { useEffect, useState } from 'react'
+import { BeatLoader } from 'react-spinners'
+import { useParams } from 'react-router-dom'
+
 import Hero from '../Hero'
 import Plate from '../Plate'
 
 import * as S from './styles'
+import { colors as c } from '../../styles/GlobalStyle'
 
-const mock = [
-  {
-    id: 1,
-    title: 'Pizza Marguerita',
-    image: pizzaImg,
-    price: 20,
-    description:
-      'The classic Margherita: juicy tomato sauce, melted mozzarella, fresh basil and a touch of olive oil. Flavor and simplicity!'
-  },
-  {
-    id: 2,
-    title: 'Pizza Marguerita',
-    image: pizzaImg,
-    price: 20,
-    description:
-      'The classic Margherita: juicy tomato sauce, melted mozzarella, fresh basil and a touch of olive oil. Flavor and simplicity!'
-  },
-  {
-    id: 3,
-    title: 'Pizza Marguerita',
-    image: pizzaImg,
-    price: 20,
-    description:
-      'The classic Margherita: juicy tomato sauce, melted mozzarella, fresh basil and a touch of olive oil. Flavor and simplicity!'
-  },
-  {
-    id: 4,
-    title: 'Pizza Marguerita',
-    image: pizzaImg,
-    price: 20,
-    description:
-      'The classic Margherita: juicy tomato sauce, melted mozzarella, fresh basil and a touch of olive oil. Flavor and simplicity!'
-  },
-  {
-    id: 5,
-    title: 'Pizza Marguerita',
-    image: pizzaImg,
-    price: 20,
-    description:
-      'The classic Margherita: juicy tomato sauce, melted mozzarella, fresh basil and a touch of olive oil. Flavor and simplicity!'
-  },
-  {
-    id: 6,
-    title: 'Pizza Marguerita',
-    image: pizzaImg,
-    price: 20,
-    description:
-      'The classic Margherita: juicy tomato sauce, melted mozzarella, fresh basil and a touch of olive oil. Flavor and simplicity!'
-  }
-]
+const PlateList = () => {
+  const [restaurant, setRestaurant] = useState<Restaurant>()
+  const [menu, setMenu] = useState<MenuItem[]>([])
+  const ApiPath = 'https://fake-api-xyxf.vercel.app/efood'
+  const { id } = useParams()
 
-const PlateList = () => (
-  <>
-    <Hero />
-    <S.ListContainer>
+  useEffect(() => {
+    fetch(`${ApiPath}/restaurants/${id}`)
+      .then((res) => res.json())
+      .then((res: Restaurant) => {
+        setRestaurant(res)
+        setMenu(res.menu)
+      })
+      .catch((err) => console.error('Failed to load restaurant', err))
+  }, [id])
+
+  if (!restaurant) {
+    return (
       <div className="container">
-        <S.ListItems>
-          {mock.map((item) => (
-            <li key={item.id}>
-              <Plate
-                id={item.id}
-                image={item.image}
-                title={item.title}
-                price={item.price}
-                description={item.description}
-              />
-            </li>
-          ))}
-        </S.ListItems>
+        <BeatLoader color={c.red}>Loading...</BeatLoader>
       </div>
-    </S.ListContainer>
-  </>
-)
+    )
+  }
+
+  return (
+    <>
+      <Hero
+        title={restaurant.title}
+        image={`${ApiPath}${restaurant.cover}`}
+        type={restaurant.type}
+      />
+      <S.ListContainer>
+        <div className="container">
+          <S.ListItems>
+            {menu.map((item) => (
+              <li key={item.id}>
+                <Plate
+                  description={item.description}
+                  id={item.id}
+                  image={`${ApiPath}${item.picture}`}
+                  title={item.name}
+                  price={item.price}
+                  serving={item.serving}
+                />
+              </li>
+            ))}
+          </S.ListItems>
+        </div>
+      </S.ListContainer>
+    </>
+  )
+}
 
 export default PlateList
