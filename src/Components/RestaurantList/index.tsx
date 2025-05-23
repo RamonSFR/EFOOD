@@ -1,79 +1,38 @@
-import Restaurant from '../Restaurant'
+import { useEffect, useState } from 'react'
 
-import sushiImg from '../../assets/images/misc/sushi.png'
-import pastaImg from '../../assets/images/misc/pasta.png'
+import Restaurant from '../Restaurant'
 
 import * as S from './styles'
 
-const mock = [
-  {
-    id: 1,
-    title: 'Hioki Sushi',
-    image: sushiImg,
-    rating: 4.5,
-    description:
-      'Order the best Japanese cuisine in the comfort of your home! Fresh sushi, delicious sashimi and hot, irresistible dishes. Fast delivery, careful packaging and guaranteed quality. Experience Japan without leaving home with our delivery service!'
-  },
-  {
-    id: 2,
-    title: 'La Dolce Vita Trattoria',
-    image: pastaImg,
-    rating: 5.0,
-    description:
-      'La Dolce Vita Trattoria brings authentic Italian cuisine to you! Enjoy homemade pasta, delicious pizzas and incredible risottos, all in the comfort of your own home. Fast delivery, well-packaged dishes and unforgettable flavors. Order now!'
-  },
-  {
-    id: 3,
-    title: 'Hioki Sushi',
-    image: sushiImg,
-    rating: 4.9,
-    description:
-      'Order the best Japanese cuisine in the comfort of your home! Fresh sushi, delicious sashimi and hot, irresistible dishes. Fast delivery, careful packaging and guaranteed quality. Experience Japan without leaving home with our delivery service!'
-  },
-  {
-    id: 4,
-    title: 'La Dolce Vita Trattoria',
-    image: pastaImg,
-    rating: 4.3,
-    description:
-      'La Dolce Vita Trattoria brings authentic Italian cuisine to you! Enjoy homemade pasta, delicious pizzas and incredible risottos, all in the comfort of your own home. Fast delivery, well-packaged dishes and unforgettable flavors. Order now!'
-  },
-  {
-    id: 5,
-    title: 'Hioki Sushi',
-    image: sushiImg,
-    rating: 4.9,
-    description:
-      'Order the best Japanese cuisine in the comfort of your home! Fresh sushi, delicious sashimi and hot, irresistible dishes. Fast delivery, careful packaging and guaranteed quality. Experience Japan without leaving home with our delivery service!'
-  },
-  {
-    id: 6,
-    title: 'La Dolce Vita Trattoria',
-    image: pastaImg,
-    rating: 4.3,
-    description:
-      'La Dolce Vita Trattoria brings authentic Italian cuisine to you! Enjoy homemade pasta, delicious pizzas and incredible risottos, all in the comfort of your own home. Fast delivery, well-packaged dishes and unforgettable flavors. Order now!'
-  }
-]
+const RestaurantList = () => {
+  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+  const ApiPath = 'https://fake-api-xyxf.vercel.app/efood'
 
-const RestaurantList = () => (
-  <S.ListContainer>
-    <div className="container">
-      <S.ListItems>
-        {mock.map((item) => (
-          <li key={item.id}>
-            <Restaurant
-              id={item.id}
-              title={item.title}
-              image={item.image}
-              rating={item.rating}
-              description={item.description}
-            />
-          </li>
-        ))}
-      </S.ListItems>
-    </div>
-  </S.ListContainer>
-)
+  useEffect(() => {
+    fetch(`${ApiPath}/restaurants`)
+      .then((res) => res.json())
+      .then((res) => setRestaurants(res))
+  }, [])
+
+  return (
+    <S.ListContainer>
+      <div className="container">
+        <S.ListItems>
+          {restaurants.map((item) => (
+            <li key={item.id}>
+              <Restaurant
+                id={item.id}
+                title={item.title}
+                image={`${ApiPath}${item.cover}`}
+                rating={item.review}
+                description={item.description}
+              />
+            </li>
+          ))}
+        </S.ListItems>
+      </div>
+    </S.ListContainer>
+  )
+}
 
 export default RestaurantList

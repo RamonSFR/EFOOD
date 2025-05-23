@@ -25,6 +25,7 @@ export const Infos = styled.div`
   border-bottom: 1px solid ${c.red};
   border-left: 1px solid ${c.red};
   border-right: 1px solid ${c.red};
+  min-height: 181px;
 
   h3,
   p,
@@ -61,4 +62,7 @@ export const Description = styled.p`
   font-size: 14px;
   line-height: 22px;
   margin: 16px 0;
+  min-height: 88px; /* se quiser controlar altura visual */
+  word-break: break-word;
+  overflow-wrap: break-word;
 `

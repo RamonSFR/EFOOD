@@ -19,9 +19,17 @@ const Restaurant = ({ description, image, title, rating }: Props) => {
     navigate('/restaurant')
   }
 
+  const filterDescription = (text: string) => {
+    if (text.length > 198) {
+      return text.slice(0, 195) + '...'
+    }
+
+    return text
+  }
+
   return (
     <S.Card>
-      <img src={image} alt="sushi" onClick={goToProduct}/>
+      <img src={image} alt="sushi" onClick={goToProduct} />
       <S.Infos>
         <div>
           <S.Title>{title}</S.Title>
@@ -29,9 +37,7 @@ const Restaurant = ({ description, image, title, rating }: Props) => {
             {rating} <img src={star} alt="stars" />
           </span>
         </div>
-        <S.Description>
-          {description}
-        </S.Description>
+        <S.Description>{filterDescription(description)}</S.Description>
         <Button onClick={goToProduct} type="secondary">
           <>View More</>
         </Button>

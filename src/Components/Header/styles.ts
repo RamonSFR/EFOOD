@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import bg from '../../assets/images/banners/headerBg.png'
-import { colors as c } from '../../styles/GlobalStyle'
+import { breakpoints, colors as c } from '../../styles/GlobalStyle'
 
 export const HeaderContainer = styled.header`
   background-image: url(${bg});
@@ -18,7 +18,14 @@ export const Title = styled.h2`
   font-weight: 900;
   line-height: 100%;
   text-align: center;
-  margin-top: 165px;
+  margin-top: 216px;
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    font-size: 32px;
+    text-align: left;
+    padding: 0 20px;
+    margin-top: 128px;
+  }
 `
 
 export const HeaderLogo = styled.h1`
