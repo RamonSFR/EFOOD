@@ -6,6 +6,11 @@ export const ListContainer = styled.div`
   background-color: ${c.beige1};
   width: 100%;
   padding: 80px 0 120px 0;
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
 `
 
 export const ListItems = styled.ul`
