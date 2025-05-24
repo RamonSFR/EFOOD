@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 
-import Tag from '../Tag'
 import { Button } from '../Button/styles'
 import star from '../../assets/images/icons/starIco.png'
 

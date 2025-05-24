@@ -18,7 +18,6 @@ export const Overlay = styled.div`
 export const ModalContent = styled.div`
   display: none;
   z-index: 2;
-  background-color: white;
 
   &.is-open {
     display: flex;
