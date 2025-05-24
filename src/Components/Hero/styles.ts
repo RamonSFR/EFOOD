@@ -5,7 +5,7 @@ import { colors as c } from '../../styles/GlobalStyle'
 export const HeroContainer = styled.div`
   position: relative;
   display: block;
-  width: 100vw;
+  width: 100%;
   height: 280px;
   background-repeat: no-repeat;
   background-size: cover;

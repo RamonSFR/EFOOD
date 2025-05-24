@@ -10,14 +10,15 @@ type Props = {
   description: string
   price: number
   serving: string
+  onClick?: () => void
 }
 
-const Plate = ({ description, image, title }: Props) => (
+const Plate = ({ description, image, title, onClick }: Props) => (
   <S.Card>
     <img src={image} alt={title} />
     <S.Title>{title}</S.Title>
     <S.Description>{filterDescription(description, 175)}</S.Description>
-    <Button>
+    <Button onClick={onClick}>
       <>Add to Cart</>
     </Button>
   </S.Card>
