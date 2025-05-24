@@ -40,6 +40,14 @@ export const ModalContaier = styled.div`
     width: 16px;
     height: 16px;
   }
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 24px 16px;
+  }
 `
 
 export const ModalInfos = styled.div`
@@ -64,10 +72,28 @@ export const ModalInfos = styled.div`
   ${Button} {
     max-width: 218px;
   }
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    margin-left: 0;
+    gap: 16px;
+    align-items: flex-start;
+
+    ${Button} {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
 `
 
 export const ModalImage = styled.img`
   width: 280px;
   height: 280px;
   object-fit: cover;
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 24px;
+  }
 `

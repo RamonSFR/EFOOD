@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors as c } from '../../styles/GlobalStyle'
+import { breakpoints, colors as c } from '../../styles/GlobalStyle'
 import { Button } from '../Button/styles'
 
 export const Card = styled.div`
@@ -18,6 +18,11 @@ export const Card = styled.div`
 
   ${Button} {
     max-width: 82px;
+  }
+
+  @media screen and (max-width: ${breakpoints.desktop}) {
+    width: 340px;
+    height: 282px;
   }
 `
 

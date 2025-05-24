@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { breakpoints } from '../../styles/GlobalStyle'
+
 export const Overlay = styled.div`
   position: fixed;
   top: 0;
@@ -32,7 +34,7 @@ export const ModalContent = styled.div`
     transform: translate(-50%, -50%);
   }
 
-  &.side {
+  &.right {
     position: fixed;
     top: 0;
     right: 0;
@@ -40,5 +42,12 @@ export const ModalContent = styled.div`
     width: 360px;
     box-shadow: -4px 0 12px rgba(0, 0, 0, 0.25);
     overflow-y: auto;
+  }
+
+  @media screen and (max-width: ${breakpoints.desktop}) {
+    &.center {
+      width: 80%;
+      height: fit-content;
+    }
   }
 `
