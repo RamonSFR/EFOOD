@@ -5,15 +5,19 @@ import Footer from './Components/Footer'
 
 import GlobalStyle from './styles/GlobalStyle'
 import AppRoutes from './routes'
+import { Provider } from 'react-redux'
+import { store } from './store'
 
 function App() {
   return (
-    <BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
       <GlobalStyle />
       <Header />
       <AppRoutes />
       <Footer />
     </BrowserRouter>
+    </Provider>
   )
 }
 
