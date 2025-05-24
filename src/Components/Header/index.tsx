@@ -1,13 +1,16 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 
+import {open} from '../../store/reducers/cart'
 import logo from '../../assets/images/icons/logo.png'
 
 import * as S from './styles'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 const Header = () => {
   const location = useLocation()
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const isHomePage = location.pathname === '/'
 
   return (
@@ -33,7 +36,7 @@ const Header = () => {
                   <p>Restaurants</p>
                 </Link>
               </li>
-              <li>
+              <li className='shopping-cart' onClick={() => dispatch(open())}>
                 <p><span>0 Product(s) in your Shopping Cart</span></p>
               </li>
             </S.HeaderNav>

@@ -16,13 +16,13 @@ export const cartSlice = createSlice({
   reducers: {
     add: (state, action: PayloadAction<MenuItem>) => {
       if (state.items.find((item) => item.id === action.payload.id)) {
-        state.items.push(action.payload)
-      } else {
         alert('Item already on shopping cart')
+      } else {
+        state.items.push(action.payload)
       }
     },
     remove: (state, action: PayloadAction<MenuItem>) => {
-      state.items = state.items.filter((item) => item.id === action.payload.id)
+      state.items = state.items.filter((item) => item.id !== action.payload.id)
     },
     clear: (state) => {
       state.items = []

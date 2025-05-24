@@ -47,6 +47,10 @@ export const HeaderNav = styled.nav`
   align-items: center;
   width: 100%;
 
+  .shopping-cart {
+    cursor: pointer;
+  }
+
   p {
     color: ${c.red};
     font-size: 18px;
