@@ -12,11 +12,11 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-      <GlobalStyle />
-      <Header />
-      <AppRoutes />
-      <Footer />
-    </BrowserRouter>
+        <GlobalStyle />
+        <Header />
+        <AppRoutes />
+        <Footer />
+      </BrowserRouter>
     </Provider>
   )
 }

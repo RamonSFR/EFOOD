@@ -22,39 +22,45 @@ const Cart = () => {
   return (
     <Modal isOpen={isOpen} onClick={() => dispatch(close())}>
       <S.ModalContainer>
-        {items.length > 0 ? (<>
-          <S.CartProducts>
-          {items.map((item) => (
-            <S.CartProduct key={item.id}>
-              <img
-                onClick={() => dispatch(remove(item))}
-                className="closeIco"
-                src={deleteIco}
-                alt="click to remove item from cart"
-              />
-              <S.CartProductImage src={`${ApiPath}${item.picture}`} />
-              <S.CartProductInfo>
-                <h2>{item.name}</h2>
-                <span>${item.price}</span>
-              </S.CartProductInfo>
-            </S.CartProduct>
-          ))}
-        </S.CartProducts>
-        <S.CartTotal>
-          Total Value <span>${getTotalPrice()}</span>
-        </S.CartTotal>
-        <Button onClick={() => dispatch(clear())}>
-          <>Clear shopping cart</>
-        </Button>
-        <Button>
-          <>Procceed to delivery</>
-        </Button>
-        </>) : (<>
+        {items.length > 0 ? (
+          <>
+            <S.CartProducts>
+              {items.map((item) => (
+                <S.CartProduct key={item.id}>
+                  <img
+                    onClick={() => dispatch(remove(item))}
+                    className="closeIco"
+                    src={deleteIco}
+                    alt="click to remove item from cart"
+                  />
+                  <S.CartProductImage src={`${ApiPath}${item.picture}`} />
+                  <S.CartProductInfo>
+                    <h2>{item.name}</h2>
+                    <span>${item.price}</span>
+                  </S.CartProductInfo>
+                </S.CartProduct>
+              ))}
+            </S.CartProducts>
+            <S.CartTotal>
+              Total Value <span>${getTotalPrice()}</span>
+            </S.CartTotal>
+            <Button onClick={() => dispatch(clear())}>
+              <>Clear shopping cart</>
+            </Button>
+            <Button>
+              <>Procceed to delivery</>
+            </Button>
+          </>
+        ) : (
+          <>
             <>
               <h3>Your shopping cart is empty</h3>
-              <Button onClick={() => dispatch(close())}><>Go back to shopping</></Button>
+              <Button onClick={() => dispatch(close())}>
+                <>Go back to shopping</>
+              </Button>
             </>
-        </>)}
+          </>
+        )}
       </S.ModalContainer>
     </Modal>
   )

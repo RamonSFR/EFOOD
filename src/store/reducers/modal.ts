@@ -5,7 +5,7 @@ type modalState = {
 }
 
 const initialState: modalState = {
-  isOpen: false,
+  isOpen: false
 }
 
 export const modalSlice = createSlice({
@@ -21,5 +21,5 @@ export const modalSlice = createSlice({
   }
 })
 
-export const {close, open} = modalSlice.actions
+export const { close, open } = modalSlice.actions
 export const modalReducer = modalSlice.reducer

@@ -10,7 +10,7 @@ import Button from '../Button'
 import Cart from '../Cart'
 import type { RootReducer } from '../../store'
 import { close, open as openAddModal } from '../../store/reducers/modal'
-import {add, open as openCartModal} from '../../store/reducers/cart'
+import { add, open as openCartModal } from '../../store/reducers/cart'
 import closeIco from '../../assets/images/icons/closeIco.png'
 import { ApiPath } from '../RestaurantList'
 
@@ -19,7 +19,9 @@ import * as S from './styles'
 
 const PlateList = () => {
   const { id } = useParams()
-  const { isOpen: isAddModalOpen } = useSelector((state: RootReducer) => state.modal)
+  const { isOpen: isAddModalOpen } = useSelector(
+    (state: RootReducer) => state.modal
+  )
   const dispatch = useDispatch()
 
   const [restaurant, setRestaurant] = useState<Restaurant>()

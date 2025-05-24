@@ -24,7 +24,9 @@ const Restaurant = ({ description, image, title, rating, id, type }: Props) => {
 
   return (
     <S.Card title={`Click here to get see more of the restaurant ${title}`}>
-      <S.TagContainer><S.Tag>{type}</S.Tag></S.TagContainer>
+      <S.TagContainer>
+        <S.Tag>{type}</S.Tag>
+      </S.TagContainer>
       <img src={image} alt="sushi" onClick={goToProduct} />
       <S.Infos>
         <div>

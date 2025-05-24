@@ -8,8 +8,10 @@ export type Props = {
   onClick?: () => void
 }
 
-const Btn = ({ children, type = 'primary', onClick}: Props) => (
-  <S.Button onClick={onClick} type={type}>{children}</S.Button>
+const Btn = ({ children, type = 'primary', onClick }: Props) => (
+  <S.Button onClick={onClick} type={type}>
+    {children}
+  </S.Button>
 )
 
 export default Btn

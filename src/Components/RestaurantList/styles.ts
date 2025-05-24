@@ -19,7 +19,6 @@ export const ListItems = styled.ul`
   row-gap: 48px;
   column-gap: 80px;
 
-
   @media screen and (max-width: ${breakpoints.desktop}) {
     row-gap: 144px;
     column-gap: 16px;
