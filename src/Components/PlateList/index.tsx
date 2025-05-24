@@ -11,7 +11,7 @@ import { colors as c } from '../../styles/GlobalStyle'
 const PlateList = () => {
   const [restaurant, setRestaurant] = useState<Restaurant>()
   const [menu, setMenu] = useState<MenuItem[]>([])
-  const ApiPath = 'https://fake-api-xyxf.vercel.app/efood'
+  const ApiPath = 'https://fake-api-virid.vercel.app/efood'
   const { id } = useParams()
 
   useEffect(() => {

@@ -8,7 +8,7 @@ import { colors as c } from '../../styles/GlobalStyle'
 
 const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([])
-  const ApiPath = 'https://fake-api-xyxf.vercel.app/efood'
+  const ApiPath = 'https://fake-api-virid.vercel.app/efood'
 
   useEffect(() => {
     fetch(`${ApiPath}/restaurants`)
