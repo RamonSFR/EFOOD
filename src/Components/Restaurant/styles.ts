@@ -63,7 +63,26 @@ export const Description = styled.p`
   font-size: 14px;
   line-height: 22px;
   margin: 16px 0;
-  min-height: 88px; /* se quiser controlar altura visual */
+  min-height: 88px;
   word-break: break-word;
   overflow-wrap: break-word;
+`
+export const TagContainer = styled.div`
+  position: relative;
+`
+
+export const Tag = styled.div`
+  display: inline-block;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: auto;
+  padding: 6px 4px;
+
+  font-weight: bold;
+  font-size: 12px;
+
+  color: ${c.beige2};
+  background-color: ${c.red};
 `

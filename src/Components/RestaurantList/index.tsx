@@ -34,6 +34,7 @@ const RestaurantList = () => {
             <li key={item.id}>
               <Restaurant
                 id={item.id}
+                type={item.type}
                 title={item.title}
                 image={`${ApiPath}${item.cover}`}
                 rating={item.review}

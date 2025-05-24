@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 
+import Tag from '../Tag'
+import { Button } from '../Button/styles'
 import star from '../../assets/images/icons/starIco.png'
 
-import * as S from './styles'
-import { Button } from '../Button/styles'
 import filterDescription from '../../utils/functions/filterDescription'
+
+import * as S from './styles'
 
 type Props = {
   id: number
@@ -12,18 +14,18 @@ type Props = {
   rating: number
   description: string
   image: string
+  type: string
 }
 
-const Restaurant = ({ description, image, title, rating, id }: Props) => {
+const Restaurant = ({ description, image, title, rating, id, type }: Props) => {
   const navigate = useNavigate()
   const goToProduct = () => {
     navigate(`restaurant/${id}`)
   }
 
   return (
-    <S.Card
-      title={`Click here to get see more of the restaurant ${title}`}
-    >
+    <S.Card title={`Click here to get see more of the restaurant ${title}`}>
+      <S.TagContainer><S.Tag>{type}</S.Tag></S.TagContainer>
       <img src={image} alt="sushi" onClick={goToProduct} />
       <S.Infos>
         <div>
