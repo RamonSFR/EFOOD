@@ -1,4 +1,4 @@
-import type { JSX } from 'react'
+import { useEffect, type JSX } from 'react'
 
 import * as S from './styles'
 
@@ -10,6 +10,13 @@ type Props = {
 }
 
 const Modal = ({ isOpen, onClick, children, variant = 'right' }: Props) => {
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
+
   return (
     <>
       <S.Overlay onClick={onClick} className={isOpen ? 'is-open' : ''} />

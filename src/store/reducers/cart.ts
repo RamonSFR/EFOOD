@@ -15,7 +15,12 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action: PayloadAction<MenuItem>) => {
-      if (state.items.find((item) => item.id === action.payload.id)) {
+      if (
+        state.items.find(
+          (item) =>
+            item.id === action.payload.id && item.name === action.payload.name
+        )
+      ) {
         alert('Item already on shopping cart')
       } else {
         state.items.push(action.payload)

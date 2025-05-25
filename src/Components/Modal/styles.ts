@@ -7,13 +7,16 @@ export const Overlay = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: none;
 
   &.is-open {
     display: block;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 1;
+    body.no-scroll {
+      overflow: hidden;
+    }
   }
 `
 

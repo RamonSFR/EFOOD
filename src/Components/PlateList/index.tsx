@@ -16,6 +16,7 @@ import { ApiPath } from '../RestaurantList'
 
 import { colors as c } from '../../styles/GlobalStyle'
 import * as S from './styles'
+import parseToUsd from '../../utils/functions/parseToUsd'
 
 const PlateList = () => {
   const { id } = useParams()
@@ -104,7 +105,7 @@ const PlateList = () => {
                 <p>{selectedItem.description}</p>
                 <span>{`Servings: ${selectedItem.serving}`}</span>
                 <Button onClick={() => addToCart(selectedItem)}>
-                  <>Add to Shopping Cart - ${selectedItem.price}</>
+                  <>Add to Shopping Cart - {parseToUsd(selectedItem.price)}</>
                 </Button>
               </S.ModalInfos>
             </>

@@ -8,6 +8,7 @@ import * as S from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import type { RootReducer } from '../../store'
 import { ApiPath } from '../RestaurantList'
+import parseToUsd from '../../utils/functions/parseToUsd'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
@@ -36,13 +37,13 @@ const Cart = () => {
                   <S.CartProductImage src={`${ApiPath}${item.picture}`} />
                   <S.CartProductInfo>
                     <h2>{item.name}</h2>
-                    <span>${item.price}</span>
+                    <span>{parseToUsd(item.price)}</span>
                   </S.CartProductInfo>
                 </S.CartProduct>
               ))}
             </S.CartProducts>
             <S.CartTotal>
-              Total Value <span>${getTotalPrice()}</span>
+              Total Value <span>{parseToUsd(getTotalPrice())}</span>
             </S.CartTotal>
             <Button onClick={() => dispatch(clear())}>
               <>Clear shopping cart</>

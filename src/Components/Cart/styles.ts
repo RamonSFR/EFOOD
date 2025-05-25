@@ -7,6 +7,9 @@ export const ModalContainer = styled.aside`
   background-color: ${c.red};
   color: ${c.beige2};
   width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  height: max-content;
   padding: 32px 8px;
 
   ${Button} {
