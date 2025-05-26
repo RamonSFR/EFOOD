@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BeatLoader } from 'react-spinners'
 import { useParams } from 'react-router-dom'
@@ -12,33 +12,21 @@ import type { RootReducer } from '../../store'
 import { close, open as openAddModal } from '../../store/reducers/modal'
 import { add, open as openCartModal } from '../../store/reducers/cart'
 import closeIco from '../../assets/images/icons/closeIco.png'
-import { ApiPath } from '../RestaurantList'
 
 import { colors as c } from '../../styles/GlobalStyle'
 import * as S from './styles'
 import parseToUsd from '../../utils/functions/parseToUsd'
+import { useGetRestaurantByIdQuery } from '../../services/api'
 
 const PlateList = () => {
   const { id } = useParams()
+  const { data: restaurant } = useGetRestaurantByIdQuery(id!)
+
   const { isOpen: isAddModalOpen } = useSelector(
     (state: RootReducer) => state.modal
   )
   const dispatch = useDispatch()
-
-  const [restaurant, setRestaurant] = useState<Restaurant>()
-  const [menu, setMenu] = useState<CardapioItem[]>([])
   const [selectedItem, setSelectedItem] = useState<CardapioItem | null>(null)
-
-  useEffect(() => {
-    fetch(`${ApiPath}/${id}`)
-      .then((res) => res.json())
-      .then((res: Restaurant) => {
-        setRestaurant(res)
-        console.log(res)
-        setMenu(res.cardapio)
-      })
-      .catch((err) => console.error('Failed to load restaurant', err))
-  }, [id])
 
   const selectItem = (item: CardapioItem) => {
     dispatch(openAddModal())
@@ -74,7 +62,7 @@ const PlateList = () => {
       <S.ListContainer>
         <div className="container">
           <S.ListItems>
-            {menu.map((item) => (
+            {restaurant.cardapio.map((item) => (
               <li key={item.id}>
                 <Plate
                   description={item.descricao}

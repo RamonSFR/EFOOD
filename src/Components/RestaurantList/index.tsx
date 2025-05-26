@@ -1,23 +1,15 @@
-import { useEffect, useState } from 'react'
 import { BeatLoader } from 'react-spinners'
 
 import Restaurant from '../Restaurant'
 
 import * as S from './styles'
 import { colors as c } from '../../styles/GlobalStyle'
-
-export const ApiPath = 'https://fake-api-tau.vercel.app/api/efood/restaurantes'
+import { useGetRestaurantsQuery } from '../../services/api'
 
 const RestaurantList = () => {
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+  const {data, isLoading} = useGetRestaurantsQuery()
 
-  useEffect(() => {
-    fetch(ApiPath)
-      .then((res) => res.json())
-      .then((res) => setRestaurants(res))
-  }, [])
-
-  if (!restaurants.length) {
+  if (isLoading) {
     return (
       <S.ListContainer>
         <div className="container">
@@ -31,7 +23,7 @@ const RestaurantList = () => {
     <S.ListContainer>
       <div className="container">
         <S.ListItems>
-          {restaurants.map((item) => (
+          {data!.map((item) => (
             <li key={item.id}>
               <Restaurant
                 id={item.id}
