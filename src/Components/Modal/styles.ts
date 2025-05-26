@@ -52,5 +52,9 @@ export const ModalContent = styled.div`
       width: 80%;
       height: fit-content;
     }
+
+    &.right {
+      width: 75%;
+    }
   }
 `

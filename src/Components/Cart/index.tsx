@@ -3,6 +3,7 @@ import Modal from '../Modal'
 import Button from '../Button'
 import deleteIco from '../../assets/images/icons/deleteIco.png'
 import { clear, close, remove } from '../../store/reducers/cart'
+import { openCheckout } from '../../store/reducers/checkout'
 
 import * as S from './styles'
 import { useDispatch, useSelector } from 'react-redux'
@@ -17,6 +18,13 @@ const Cart = () => {
     return items.reduce((acc, item) => {
       return (acc += item.preco)
     }, 0)
+  }
+
+  const goToCheckout = () => {
+    if (items.length) {
+      dispatch(close())
+      dispatch(openCheckout())
+    }
   }
 
   return (
@@ -47,7 +55,7 @@ const Cart = () => {
             <Button onClick={() => dispatch(clear())}>
               <>Limpar carrinho</>
             </Button>
-            <Button>
+            <Button onClick={goToCheckout}>
               <>Continuar com a entrega</>
             </Button>
           </>

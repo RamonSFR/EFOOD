@@ -7,16 +7,17 @@ import Hero from '../Hero'
 import Plate from '../Plate'
 import Modal from '../Modal'
 import Button from '../Button'
+import Checkout from '../Checkout'
 import Cart from '../Cart'
 import type { RootReducer } from '../../store'
 import { close, open as openAddModal } from '../../store/reducers/modal'
 import { add, open as openCartModal } from '../../store/reducers/cart'
+import parseToUsd from '../../utils/functions/parseToUsd'
+import { useGetRestaurantByIdQuery } from '../../services/api'
 import closeIco from '../../assets/images/icons/closeIco.png'
 
 import { colors as c } from '../../styles/GlobalStyle'
 import * as S from './styles'
-import parseToUsd from '../../utils/functions/parseToUsd'
-import { useGetRestaurantByIdQuery } from '../../services/api'
 
 const PlateList = () => {
   const { id } = useParams()
@@ -102,6 +103,7 @@ const PlateList = () => {
         </Modal>
       )}
       <Cart />
+      <Checkout />
     </>
   )
 }
