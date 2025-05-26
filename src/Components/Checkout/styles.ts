@@ -26,17 +26,18 @@ export const Form = styled.form`
     flex-direction: column;
     gap: 8px;
 
-    label, input {
+    label,
+    input {
       font-size: 14px;
       font-weight: 700;
     }
 
     input {
-      display: block;
       background-color: ${c.beige2};
       border: none;
       padding: 8px 16px;
       color: ${c.grey};
+      width: 100%;
 
       &:focus {
         outline: 2px solid ${c.beige1};
@@ -58,5 +59,31 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 8px;
+  }
+
+  .card-info-1,
+  .card-info-2 {
+    display: flex;
+    gap: 32px;
+  }
+
+  .card-info-1 {
+    justify-content: space-between;
+
+    .input-group:first-child {
+      flex: 1;
+    }
+
+    #cardNumber {
+      width: 100%;
+    }
+
+    #cvv {
+      max-width: 84px;
+    }
+  }
+
+  .card-info-2 input {
+    max-width: 155px;
   }
 `

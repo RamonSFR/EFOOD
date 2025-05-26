@@ -5,20 +5,16 @@ import deleteIco from '../../assets/images/icons/deleteIco.png'
 import { clear, close, remove } from '../../store/reducers/cart'
 import { openCheckout } from '../../store/reducers/checkout'
 
-import * as S from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import type { RootReducer } from '../../store'
 import parseToUsd from '../../utils/functions/parseToUsd'
+import getTotalPrice from '../../utils/functions/getTotalPrice'
+
+import * as S from './styles'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
-
-  const getTotalPrice = () => {
-    return items.reduce((acc, item) => {
-      return (acc += item.preco)
-    }, 0)
-  }
 
   const goToCheckout = () => {
     if (items.length) {
@@ -50,7 +46,7 @@ const Cart = () => {
               ))}
             </S.CartProducts>
             <S.CartTotal>
-              Valor total  <span>{parseToUsd(getTotalPrice())}</span>
+              Valor total <span>{parseToUsd(getTotalPrice(items))}</span>
             </S.CartTotal>
             <Button onClick={() => dispatch(clear())}>
               <>Limpar carrinho</>
