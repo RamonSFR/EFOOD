@@ -17,7 +17,7 @@ const Plate = ({ description, image, title, onClick }: Props) => (
   <S.Card>
     <img src={image} alt={title} />
     <S.Title>{title}</S.Title>
-    <S.Description>{filterDescription(description, 175)}</S.Description>
+    <S.Description>{filterDescription(description, 163)}</S.Description>
     <Button onClick={onClick}>
       <>Adicionar ao carrinho</>
     </Button>
