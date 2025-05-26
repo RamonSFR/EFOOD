@@ -37,6 +37,7 @@ export const HeaderLogo = styled.h1`
   left: 50%;
   transform: translateX(-50%);
   cursor: pointer;
+  z-index: 1;
 
   img {
     width: 125px;
