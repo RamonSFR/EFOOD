@@ -17,11 +17,9 @@ const Header = () => {
 
   return (
     <S.HeaderContainer>
-      {isHomePage ? (
-        <S.HeaderLogo onClick={() => navigate('/')}>
-          <img draggable="false" src={logo} alt="EFOOD" />
-        </S.HeaderLogo>
-      ) : null}
+      <S.HeaderLogo onClick={() => navigate('/')}>
+        <img draggable="false" src={logo} alt="EFOOD" />
+      </S.HeaderLogo>
       <div className="container">
         {isHomePage ? (
           <S.Title>
@@ -35,7 +33,7 @@ const Header = () => {
                 <p>Restaurantes</p>
               </Link>
             </li>
-            <li>
+            <li className="mobile">
               <h1 onClick={() => navigate('/')}>
                 <img draggable="false" src={logo} alt="EFOOD" />
               </h1>
@@ -46,7 +44,7 @@ const Header = () => {
                   {items.length} produto(s) no carrinho
                 </span>
                 <span className="mobile">
-                  <img src={cartIco} alt="Cart" />
+                  <img className="cart-mobile-ico" src={cartIco} alt="Cart" />
                   {items.length}
                 </span>
               </p>

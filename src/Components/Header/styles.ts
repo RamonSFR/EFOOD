@@ -43,6 +43,10 @@ export const HeaderLogo = styled.h1`
     width: 125px;
     height: 58px;
   }
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    display: none;
+  }
 `
 
 export const HeaderNav = styled.nav`
@@ -61,35 +65,31 @@ export const HeaderNav = styled.nav`
     font-weight: 900;
   }
 
-  li {
-    .mobile {
-      display: none;
-      img {
-      }
-    }
+  .mobile {
+    display: none;
+  }
 
-    .desktop {
-      display: block;
-    }
+  .desktop {
+    display: block;
   }
 
   @media screen and (max-width: ${breakpoints.tablet}) {
     justify-content: space-between;
 
-    .desktop, li .desktop {
-      display: none;
-    }
-
-    li .mobile {
+    .mobile {
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 24px;
+    }
 
-      img {
-        width: 32px;
-        height: 32px;
-      }
+    .cart-mobile-ico {
+      width: 32px;
+      height: 32px;
+    }
+
+    .desktop {
+      display: none;
     }
   }
 `
