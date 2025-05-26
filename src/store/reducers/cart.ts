@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 type cartState = {
-  items: MenuItem[]
+  items: CardapioItem[]
   isOpen: boolean
 }
 
@@ -14,11 +14,11 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<MenuItem>) => {
+    add: (state, action: PayloadAction<CardapioItem>) => {
       if (
         state.items.find(
           (item) =>
-            item.id === action.payload.id && item.name === action.payload.name
+            item.id === action.payload.id && item.nome === action.payload.nome
         )
       ) {
         alert('Item already on shopping cart')
@@ -26,7 +26,7 @@ export const cartSlice = createSlice({
         state.items.push(action.payload)
       }
     },
-    remove: (state, action: PayloadAction<MenuItem>) => {
+    remove: (state, action: PayloadAction<CardapioItem>) => {
       state.items = state.items.filter((item) => item.id !== action.payload.id)
     },
     clear: (state) => {
