@@ -60,4 +60,36 @@ export const HeaderNav = styled.nav`
     font-size: 18px;
     font-weight: 900;
   }
+
+  li {
+    .mobile {
+      display: none;
+      img {
+      }
+    }
+
+    .desktop {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    justify-content: space-between;
+
+    .desktop, li .desktop {
+      display: none;
+    }
+
+    li .mobile {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 24px;
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
 `

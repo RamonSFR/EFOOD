@@ -20,7 +20,7 @@ export const ListItems = styled.ul`
   column-gap: 80px;
 
   @media screen and (max-width: ${breakpoints.desktop}) {
-    row-gap: 144px;
+    row-gap: 177px;
     column-gap: 16px;
   }
 
@@ -28,5 +28,6 @@ export const ListItems = styled.ul`
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 170px;
   }
 `
