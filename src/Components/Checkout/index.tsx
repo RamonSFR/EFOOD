@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Button } from '../Button/styles'
+import Btn from '../Button'
 import Modal from '../Modal'
 import { closeCheckout } from '../../store/reducers/checkout'
+import { open } from '../../store/reducers/cart'
 
 import * as S from './styles'
 import type { RootReducer } from '../../store'
@@ -10,6 +11,11 @@ import type { RootReducer } from '../../store'
 const Checkout = () => {
   const { isOpen } = useSelector((state: RootReducer) => state.checkout)
   const dispatch = useDispatch()
+
+  const backToCart = () => {
+    dispatch(open())
+    dispatch(closeCheckout())
+  }
 
   return (
     <Modal isOpen={isOpen} onClick={() => dispatch(closeCheckout())}>
@@ -44,12 +50,12 @@ const Checkout = () => {
           </div>
 
           <div className="form-buttons">
-            <Button type="primary">
+            <Btn type="submit">
               <>Continuar com o pagamento</>
-            </Button>
-            <Button type="primary">
+            </Btn>
+            <Btn onClick={backToCart}>
               <>Voltar para o carrinho</>
-            </Button>
+            </Btn>
           </div>
         </S.Form>
       </S.ModalContainer>

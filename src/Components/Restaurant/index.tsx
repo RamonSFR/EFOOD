@@ -38,7 +38,7 @@ const Restaurant = ({ description, image, title, rating, id, type, highlighted =
           </span>
         </div>
         <S.Description>{filterDescription(description, 198)}</S.Description>
-        <Button onClick={goToProduct} type="secondary">
+        <Button onClick={goToProduct} variant="secondary">
           <>Saiba mais</>
         </Button>
       </S.Infos>

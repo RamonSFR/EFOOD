@@ -4,12 +4,13 @@ import * as S from './styles'
 
 export type Props = {
   children: JSX.Element
-  type?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary'
+  type?: 'button' | 'submit'
   onClick?: () => void
 }
 
-const Btn = ({ children, type = 'primary', onClick }: Props) => (
-  <S.Button onClick={onClick} type={type}>
+const Btn = ({ children, variant = 'primary', onClick, type = 'button' }: Props) => (
+  <S.Button onClick={onClick} variant={variant} type={type}>
     {children}
   </S.Button>
 )
