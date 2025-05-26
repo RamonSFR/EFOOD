@@ -7,9 +7,12 @@ export const HeaderContainer = styled.header`
   background-image: url(${bg});
   width: 100%;
   padding: 64px 0;
-  display: flex;
-  justify-content: center;
-  position: relative;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
 `
 
 export const Title = styled.h2`
@@ -43,7 +46,7 @@ export const HeaderLogo = styled.h1`
 
 export const HeaderNav = styled.nav`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 
