@@ -45,7 +45,9 @@ export const HeaderLogo = styled.h1`
   }
 
   @media screen and (max-width: ${breakpoints.tablet}) {
-    display: none;
+    &:not(.home) {
+      display: none;
+    }
   }
 `
 

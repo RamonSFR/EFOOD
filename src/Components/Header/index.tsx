@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <S.HeaderContainer>
-      <S.HeaderLogo onClick={() => navigate('/')}>
+      <S.HeaderLogo className={isHomePage ? 'home' : ''} onClick={() => navigate('/')}>
         <img draggable="false" src={logo} alt="EFOOD" />
       </S.HeaderLogo>
       <div className="container">
