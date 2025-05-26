@@ -15,7 +15,7 @@ const Cart = () => {
 
   const getTotalPrice = () => {
     return items.reduce((acc, item) => {
-      return (acc += item.price)
+      return (acc += item.preco)
     }, 0)
   }
 
