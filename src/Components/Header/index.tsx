@@ -22,15 +22,10 @@ const Header = () => {
       </S.HeaderLogo>
       <div className="container">
         {isHomePage ? (
-          <>
-            <S.HeaderLogo>
-              <img draggable="false" src={logo} alt="EFOOD" />
-            </S.HeaderLogo>
-            <S.Title>
-              Viva experiências gastronômicas <br />
-              no conforto da sua casa
-            </S.Title>
-          </>
+          <S.Title>
+            Viva experiências gastronômicas <br />
+            no conforto da sua casa
+          </S.Title>
         ) : (
           <S.HeaderNav>
             <li>
