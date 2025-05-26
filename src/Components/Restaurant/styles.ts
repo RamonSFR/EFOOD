@@ -7,6 +7,7 @@ export const Card = styled.div`
   width: 472px;
   height: 398px;
   background-color: ${c.white};
+  position: relative;
 
   & > img {
     width: 100%;
@@ -73,17 +74,18 @@ export const Description = styled.p`
   overflow-wrap: break-word;
 `
 export const TagContainer = styled.div`
-  position: relative;
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: 0;
+  padding: 16px;
 `
 
 export const Tag = styled.div`
   display: inline-block;
-  position: absolute;
-  top: 16px;
-  right: 16px;
-
   width: auto;
   padding: 6px 4px;
+  margin-left: 8px;
 
   font-weight: bold;
   font-size: 12px;

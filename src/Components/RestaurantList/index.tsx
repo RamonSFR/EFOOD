@@ -6,13 +6,13 @@ import Restaurant from '../Restaurant'
 import * as S from './styles'
 import { colors as c } from '../../styles/GlobalStyle'
 
-export const ApiPath = 'https://fake-api-virid.vercel.app/efood'
+export const ApiPath = 'https://fake-api-tau.vercel.app/api/efood/restaurantes'
 
 const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([])
 
   useEffect(() => {
-    fetch(`${ApiPath}/restaurants`)
+    fetch(ApiPath)
       .then((res) => res.json())
       .then((res) => setRestaurants(res))
   }, [])
@@ -35,11 +35,12 @@ const RestaurantList = () => {
             <li key={item.id}>
               <Restaurant
                 id={item.id}
-                type={item.type}
-                title={item.title}
-                image={`${ApiPath}${item.cover}`}
-                rating={item.review}
-                description={item.description}
+                type={item.tipo}
+                title={item.titulo}
+                highlighted={item.destacado}
+                image={`${item.capa}`}
+                rating={item.avaliacao}
+                description={item.descricao}
               />
             </li>
           ))}

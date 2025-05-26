@@ -12,11 +12,12 @@ type Props = {
   title: string
   rating: number
   description: string
+  highlighted?: boolean
   image: string
   type: string
 }
 
-const Restaurant = ({ description, image, title, rating, id, type }: Props) => {
+const Restaurant = ({ description, image, title, rating, id, type, highlighted = false }: Props) => {
   const navigate = useNavigate()
   const goToProduct = () => {
     navigate(`restaurant/${id}`)
@@ -25,6 +26,7 @@ const Restaurant = ({ description, image, title, rating, id, type }: Props) => {
   return (
     <S.Card title={`Click here to get see more of the restaurant ${title}`}>
       <S.TagContainer>
+        {highlighted && <S.Tag>Destaque da semana</S.Tag>}
         <S.Tag>{type}</S.Tag>
       </S.TagContainer>
       <img src={image} alt="sushi" onClick={goToProduct} />
@@ -37,7 +39,7 @@ const Restaurant = ({ description, image, title, rating, id, type }: Props) => {
         </div>
         <S.Description>{filterDescription(description, 198)}</S.Description>
         <Button onClick={goToProduct} type="secondary">
-          <>View More</>
+          <>Saiba mais</>
         </Button>
       </S.Infos>
     </S.Card>

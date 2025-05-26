@@ -26,20 +26,21 @@ const PlateList = () => {
   const dispatch = useDispatch()
 
   const [restaurant, setRestaurant] = useState<Restaurant>()
-  const [menu, setMenu] = useState<MenuItem[]>([])
-  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null)
+  const [menu, setMenu] = useState<CardapioItem[]>([])
+  const [selectedItem, setSelectedItem] = useState<CardapioItem | null>(null)
 
   useEffect(() => {
-    fetch(`${ApiPath}/restaurants/${id}`)
+    fetch(`${ApiPath}/${id}`)
       .then((res) => res.json())
       .then((res: Restaurant) => {
         setRestaurant(res)
-        setMenu(res.menu)
+        console.log(res)
+        setMenu(res.cardapio)
       })
       .catch((err) => console.error('Failed to load restaurant', err))
   }, [id])
 
-  const selectItem = (item: MenuItem) => {
+  const selectItem = (item: CardapioItem) => {
     dispatch(openAddModal())
     setSelectedItem(item)
   }
@@ -49,7 +50,7 @@ const PlateList = () => {
     setSelectedItem(null)
   }
 
-  const addToCart = (item: MenuItem) => {
+  const addToCart = (item: CardapioItem) => {
     dispatch(add(item))
     dispatch(close())
     dispatch(openCartModal())
@@ -66,9 +67,9 @@ const PlateList = () => {
   return (
     <>
       <Hero
-        title={restaurant.title}
-        image={`${ApiPath}${restaurant.cover}`}
-        type={restaurant.type}
+        title={restaurant.titulo}
+        image={restaurant.capa}
+        type={restaurant.tipo}
       />
       <S.ListContainer>
         <div className="container">
@@ -76,12 +77,12 @@ const PlateList = () => {
             {menu.map((item) => (
               <li key={item.id}>
                 <Plate
-                  description={item.description}
+                  description={item.descricao}
                   id={item.id}
-                  image={`${ApiPath}${item.picture}`}
-                  title={item.name}
-                  price={item.price}
-                  serving={item.serving}
+                  image={item.foto}
+                  title={item.nome}
+                  price={item.preco}
+                  serving={item.porcao}
                   onClick={() => selectItem(item)}
                 />
               </li>
@@ -99,13 +100,13 @@ const PlateList = () => {
               onClick={closeAddModal}
             />
             <>
-              <S.ModalImage src={`${ApiPath}${selectedItem.picture}`} />
+              <S.ModalImage src={selectedItem.foto} />
               <S.ModalInfos>
-                <h4>{selectedItem.name}</h4>
-                <p>{selectedItem.description}</p>
-                <span>{`Servings: ${selectedItem.serving}`}</span>
+                <h4>{selectedItem.nome}</h4>
+                <p>{selectedItem.descricao}</p>
+                <span>{`Servings: ${selectedItem.porcao}`}</span>
                 <Button onClick={() => addToCart(selectedItem)}>
-                  <>Add to Shopping Cart - {parseToUsd(selectedItem.price)}</>
+                  <>Add to Shopping Cart - {parseToUsd(selectedItem.preco)}</>
                 </Button>
               </S.ModalInfos>
             </>

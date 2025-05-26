@@ -19,7 +19,7 @@ const Plate = ({ description, image, title, onClick }: Props) => (
     <S.Title>{title}</S.Title>
     <S.Description>{filterDescription(description, 175)}</S.Description>
     <Button onClick={onClick}>
-      <>Add to Cart</>
+      <>Adicionar ao carrinho</>
     </Button>
   </S.Card>
 )

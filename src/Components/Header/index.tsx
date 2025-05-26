@@ -23,8 +23,8 @@ const Header = () => {
             <img draggable="false" src={logo} alt="EFOOD" />
           </S.HeaderLogo>
           <S.Title>
-            Live gastronomic experiences <br />
-            at the confort of your house
+            Viva experiências gastronômicas <br />
+            no conforto da sua casa
           </S.Title>
         </>
       ) : (
@@ -35,12 +35,12 @@ const Header = () => {
           <S.HeaderNav>
             <li>
               <Link to="/">
-                <p>Restaurants</p>
+                <p>Restaurantes</p>
               </Link>
             </li>
             <li className="shopping-cart" onClick={() => dispatch(open())}>
               <p>
-                <span>{items.length} Product(s) in your Shopping Cart</span>
+                <span>{items.length} Produto(s) no carrinho</span>
               </p>
             </li>
           </S.HeaderNav>

@@ -1,18 +1,19 @@
-declare type MenuItem = {
-  picture: string
-  price: number
+declare type CardapioItem = {
+  foto: string
+  preco: number
   id: number
-  name: string
-  description: string
-  serving: string
+  nome: string
+  descricao: string
+  porcao: string
 }
 
 declare type Restaurant = {
   id: number
-  title: string
-  type: string
-  review: number
-  description: string
-  cover: string
-  menu: MenuItem[]
+  titulo: string
+  tipo: string
+  destacado: boolean
+  avaliacao: number
+  descricao: string
+  capa: string
+  cardapio: CardapioItem[]
 }

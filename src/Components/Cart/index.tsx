@@ -7,7 +7,6 @@ import { clear, close, remove } from '../../store/reducers/cart'
 import * as S from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import type { RootReducer } from '../../store'
-import { ApiPath } from '../RestaurantList'
 import parseToUsd from '../../utils/functions/parseToUsd'
 
 const Cart = () => {
@@ -34,30 +33,30 @@ const Cart = () => {
                     src={deleteIco}
                     alt="click to remove item from cart"
                   />
-                  <S.CartProductImage src={`${ApiPath}${item.picture}`} />
+                  <S.CartProductImage src={item.foto} />
                   <S.CartProductInfo>
-                    <h2>{item.name}</h2>
-                    <span>{parseToUsd(item.price)}</span>
+                    <h2>{item.nome}</h2>
+                    <span>{parseToUsd(item.preco)}</span>
                   </S.CartProductInfo>
                 </S.CartProduct>
               ))}
             </S.CartProducts>
             <S.CartTotal>
-              Total Value <span>{parseToUsd(getTotalPrice())}</span>
+              Valor total  <span>{parseToUsd(getTotalPrice())}</span>
             </S.CartTotal>
             <Button onClick={() => dispatch(clear())}>
-              <>Clear shopping cart</>
+              <>Limpar carrinho</>
             </Button>
             <Button>
-              <>Procceed to delivery</>
+              <>Continuar com a entrega</>
             </Button>
           </>
         ) : (
           <>
             <>
-              <h3>Your shopping cart is empty</h3>
+              <h3>Seu carrinho está vazio</h3>
               <Button onClick={() => dispatch(close())}>
-                <>Go back to shopping</>
+                <>Voltar para compras</>
               </Button>
             </>
           </>

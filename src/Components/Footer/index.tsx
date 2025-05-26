@@ -26,9 +26,9 @@ const Footer = () => (
         </S.SocialsItem>
       </S.Socials>
       <p>
-        Efood is a platform for promoting restaurants. <br /> All
-        responsibilities regarding delivery and product quality lie with the
-        restaurant itself.
+        A efood é uma plataforma para divulgação de estabelecimentos, a
+        responsabilidade pela entrega, qualidade  <br />dos produtos é toda do
+        estabelecimento contratado.
       </p>
     </S.Footer>
   </div>
