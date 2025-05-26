@@ -9,11 +9,22 @@ type Props = {
   children: JSX.Element
 }
 
+let modalCount = 0
+
 const Modal = ({ isOpen, onClick, children, variant = 'right' }: Props) => {
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : ''
+    if (isOpen) {
+      modalCount++
+      document.body.style.overflow = 'hidden'
+    }
+
     return () => {
-      document.body.style.overflow = ''
+      if (isOpen) {
+        modalCount--
+        if (modalCount === 0) {
+          document.body.style.overflow = ''
+        }
+      }
     }
   }, [isOpen])
 
