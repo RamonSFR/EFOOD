@@ -9,6 +9,7 @@ import Modal from '../Modal'
 import { closeCheckout as close } from '../../store/reducers/checkout'
 import { open } from '../../store/reducers/cart'
 
+import { usePurchaseMutation } from '../../services/api'
 import parseToUsd from '../../utils/functions/parseToUsd'
 import getTotalPrice from '../../utils/functions/getTotalPrice'
 import type { RootReducer } from '../../store'
@@ -16,6 +17,7 @@ import type { RootReducer } from '../../store'
 import * as S from './styles'
 
 const Checkout = () => {
+  const [purchase] = usePurchaseMutation()
   const { isOpen } = useSelector((state: RootReducer) => state.checkout)
   const { items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
@@ -79,12 +81,40 @@ const Checkout = () => {
         .max(2, 'Expiration month must have 2 digits')
         .required('Expiration month is required'),
       expirationYear: Yup.string()
-        .min(2, 'Expiration year must have 4 digits')
-        .max(2, 'Expiration year must have 4 digits')
+        .min(4, 'Expiration year must have 4 digits')
+        .max(4, 'Expiration year must have 4 digits')
         .required('Expiration year is required')
     }),
     onSubmit: (values) => {
-      console.log('Form submitted', values)
+      purchase({
+        products: items.map((item) => ({
+          id: item.id,
+          price: item.preco
+        })),
+        delivery: {
+          receiver: values.name,
+          address: {
+            description: values.address,
+            city: values.city,
+            zipCode: values.zipCode,
+            number: Number(values.postalCode),
+            complement: values.complement
+          }
+        },
+        payment: {
+          card: {
+            name: values.cardName,
+            number: values.cardNumber,
+            code: Number(values.cvv),
+            expires: {
+              month: Number(values.expirationMonth),
+              year: Number(values.expirationYear)
+            }
+          }
+        }
+      })
+
+      console.log('Purchase submitted:', values)
     }
   })
 
@@ -233,7 +263,7 @@ const Checkout = () => {
                 <div className="input-group">
                   <label htmlFor="expirationYear">Ano de Vencimento</label>
                   <IMaskInput
-                    mask="00"
+                    mask="0000"
                     name="expirationYear"
                     value={form.values.expirationYear}
                     onChange={form.handleChange}
