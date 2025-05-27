@@ -42,6 +42,10 @@ export const Form = styled.form`
       &:focus {
         outline: 2px solid ${c.beige1};
       }
+
+      &.error {
+        outline: 3px solid red;
+      }
     }
   }
 
@@ -85,5 +89,23 @@ export const Form = styled.form`
 
   .card-info-2 input {
     max-width: 155px;
+  }
+`
+
+export const OrderFinish = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
   }
 `
