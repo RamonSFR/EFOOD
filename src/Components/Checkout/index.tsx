@@ -59,33 +59,33 @@ const Checkout = () => {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(3, 'Name must have at least 3 characters')
-        .required('Name is required'),
+        .min(3, 'Nome deve ter pelo menos 3 caracteres')
+        .required('Nome é obrigatório'),
       address: Yup.string()
-        .min(5, 'Address must have at least 5 characters')
-        .required('Address is required'),
+        .min(5, 'Endereço deve ter pelo menos 5 caracteres')
+        .required('Endereço é obrigatório'),
       city: Yup.string()
-        .min(2, 'City must have at least 2 characters')
-        .required('City is required'),
+        .min(2, 'Cidade deve ter pelo menos 2 caracteres')
+        .required('Cidade é obrigatória'),
       zipCode: Yup.string()
-        .min(9, 'ZIP code must have 9 characters')
-        .max(9, 'ZIP code must have 9 characters')
-        .required('ZIP code is required'),
+        .min(9, 'CEP deve ter 9 caracteres')
+        .max(9, 'CEP deve ter 9 caracteres')
+        .required('CEP é obrigatório'),
       postalCode: Yup.string()
-        .min(2, 'Number must have at least 2 characters')
-        .required('Number is required'),
+        .min(2, 'Número deve ter pelo menos 2 caracteres')
+        .required('Número é obrigatório'),
       complement: Yup.string(),
       cardName: Yup.string()
-        .min(3, 'Card name must have at least 3 characters')
-        .required('Card name is required'),
+        .min(3, 'Nome do cartão deve ter pelo menos 3 caracteres')
+        .required('Nome do cartão é obrigatório'),
       cardNumber: Yup.string()
-        .min(19, 'Card number must have 19 characters')
-        .max(19, 'Card number must have 19 characters')
-        .required('Card number is required'),
+        .min(19, 'Número do cartão deve ter 19 caracteres')
+        .max(19, 'Número do cartão deve ter 19 caracteres')
+        .required('Número do cartão é obrigatório'),
       cvv: Yup.string()
-        .min(3, 'CVV must have at least 3 characters')
-        .max(3, 'CVV must have at least 3 characters')
-        .required('CVV is required'),
+        .min(3, 'CVV deve ter pelo menos 3 caracteres')
+        .max(3, 'CVV deve ter 3 caracteres')
+        .required('CVV é obrigatório'),
       expirationMonth: Yup.number()
         .typeError('Mês inválido')
         .required('Mês obrigatório')
@@ -431,7 +431,7 @@ const Checkout = () => {
                 gastronômica. Bom apetite!
               </p>
 
-              <Btn type="link" to="/">
+              <Btn type="link" to="/" onClick={closeCheckout}>
                 <>Concluir</>
               </Btn>
             </S.OrderFinish>

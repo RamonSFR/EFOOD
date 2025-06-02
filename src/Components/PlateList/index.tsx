@@ -93,9 +93,9 @@ const PlateList = () => {
               <S.ModalInfos>
                 <h4>{selectedItem.nome}</h4>
                 <p>{selectedItem.descricao}</p>
-                <span>{`Servings: ${selectedItem.porcao}`}</span>
+                <span>{`Porção: ${selectedItem.porcao}`}</span>
                 <Button onClick={() => addToCart(selectedItem)}>
-                  <>Add to Shopping Cart - {parseToUsd(selectedItem.preco)}</>
+                  <>Adicionar ao carrinho - {parseToUsd(selectedItem.preco)}</>
                 </Button>
               </S.ModalInfos>
             </>
