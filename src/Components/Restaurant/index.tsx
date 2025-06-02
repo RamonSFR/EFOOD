@@ -17,7 +17,15 @@ type Props = {
   type: string
 }
 
-const Restaurant = ({ description, image, title, rating, id, type, highlighted = false }: Props) => {
+const Restaurant = ({
+  description,
+  image,
+  title,
+  rating,
+  id,
+  type,
+  highlighted = false
+}: Props) => {
   const navigate = useNavigate()
   const goToProduct = () => {
     navigate(`restaurant/${id}`)

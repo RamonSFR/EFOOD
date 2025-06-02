@@ -7,7 +7,7 @@ import { colors as c } from '../../styles/GlobalStyle'
 import * as S from './styles'
 
 const RestaurantList = () => {
-  const {data, isLoading} = useGetRestaurantsQuery()
+  const { data, isLoading } = useGetRestaurantsQuery()
 
   if (isLoading) {
     return (
