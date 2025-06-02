@@ -100,7 +100,7 @@ const Checkout = () => {
       purchase({
         products: items.map((item) => ({
           id: item.id,
-          price: item.preco
+          price: item.price
         })),
         delivery: {
           receiver: values.name,
