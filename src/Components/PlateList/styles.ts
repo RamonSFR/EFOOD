@@ -95,6 +95,8 @@ export const ModalImage = styled.img`
   width: 280px;
   height: 280px;
   object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid ${c.beige1};
 
   @media screen and (max-width: ${breakpoints.tablet}) {
     width: 100%;

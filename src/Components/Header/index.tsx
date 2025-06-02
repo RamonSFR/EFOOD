@@ -23,14 +23,14 @@ const Header = () => {
       <div className="container">
         {isHomePage ? (
           <S.Title>
-            Viva experiências gastronômicas <br />
-            no conforto da sua casa
+            Live gastronomical experiences <br />
+            at the confort of your home
           </S.Title>
         ) : (
           <S.HeaderNav>
             <li className="desktop">
               <Link to="/">
-                <p>Restaurantes</p>
+                <p>Restaurants</p>
               </Link>
             </li>
             <li className="mobile">
@@ -41,7 +41,7 @@ const Header = () => {
             <li className="shopping-cart" onClick={() => dispatch(open())}>
               <p>
                 <span className="desktop">
-                  {items.length} produto(s) no carrinho
+                  {items.length} Product(s) in cart
                 </span>
                 <span className="mobile">
                   <img className="cart-mobile-ico" src={cartIco} alt="Cart" />

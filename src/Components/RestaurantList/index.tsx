@@ -1,10 +1,10 @@
 import { BeatLoader } from 'react-spinners'
 
 import Restaurant from '../Restaurant'
+import { ApiPath, useGetRestaurantsQuery } from '../../services/api'
 
-import * as S from './styles'
 import { colors as c } from '../../styles/GlobalStyle'
-import { useGetRestaurantsQuery } from '../../services/api'
+import * as S from './styles'
 
 const RestaurantList = () => {
   const {data, isLoading} = useGetRestaurantsQuery()
@@ -27,12 +27,12 @@ const RestaurantList = () => {
             <li key={item.id}>
               <Restaurant
                 id={item.id}
-                type={item.tipo}
-                title={item.titulo}
-                highlighted={item.destacado}
-                image={`${item.capa}`}
-                rating={item.avaliacao}
-                description={item.descricao}
+                type={item.type}
+                title={item.title}
+                highlighted={item.highlighted}
+                image={`${ApiPath}${item.cover}`}
+                rating={item.review}
+                description={item.description}
               />
             </li>
           ))}

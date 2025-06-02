@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const ApiPath = 'https://fake-api-tau.vercel.app/api/efood'
+export const ApiPath = 'https://fake-api-virid.vercel.app/efood'
 
 type Product = {
   id: number
@@ -42,10 +42,10 @@ const api = createApi({
   }),
   endpoints: (builder) => ({
     getRestaurants: builder.query<Restaurant[], void>({
-      query: () => '/restaurantes'
+      query: () => '/restaurants'
     }),
     getRestaurantById: builder.query<Restaurant, string>({
-      query: (id) => `/restaurantes/${id}`
+      query: (id) => `/restaurants/${id}`
     }),
     purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
       query: (body) => ({

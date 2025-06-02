@@ -1,6 +1,6 @@
-const getTotalPrice = (items: CardapioItem[]) => {
+const getTotalPrice = (items: MenuItem[]) => {
   return items.reduce((acc, item) => {
-    return (acc += item.preco)
+    return (acc += item.price)
   }, 0)
 }
 

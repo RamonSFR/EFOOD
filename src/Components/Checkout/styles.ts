@@ -47,6 +47,11 @@ export const Form = styled.form`
         outline: 3px solid red;
       }
     }
+
+    .cvv-error-msg {
+      max-width: 100px;
+      margin-bottom: 16px;
+    }
   }
 
   .form-numbers {

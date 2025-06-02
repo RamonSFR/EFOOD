@@ -59,42 +59,42 @@ const Checkout = () => {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(3, 'Nome deve ter pelo menos 3 caracteres')
-        .required('Nome é obrigatório'),
+        .min(3, 'Name should have at least 3 characters')
+        .required('Name is required'),
       address: Yup.string()
-        .min(5, 'Endereço deve ter pelo menos 5 caracteres')
-        .required('Endereço é obrigatório'),
+        .min(5, 'Address should have at least 5 characters')
+        .required('Address is required'),
       city: Yup.string()
-        .min(2, 'Cidade deve ter pelo menos 2 caracteres')
-        .required('Cidade é obrigatória'),
+        .min(2, 'City should have at least 2 characters')
+        .required('City is required'),
       zipCode: Yup.string()
-        .min(9, 'CEP deve ter 9 caracteres')
-        .max(9, 'CEP deve ter 9 caracteres')
-        .required('CEP é obrigatório'),
+        .min(9, 'ZIP code should have 9 characters')
+        .max(9, 'ZIP code should have 9 characters')
+        .required('ZIP code is required'),
       postalCode: Yup.string()
-        .min(2, 'Número deve ter pelo menos 2 caracteres')
-        .required('Número é obrigatório'),
+        .min(2, 'Number should have at least 2 characters')
+        .required('Number is required'),
       complement: Yup.string(),
       cardName: Yup.string()
-        .min(3, 'Nome do cartão deve ter pelo menos 3 caracteres')
-        .required('Nome do cartão é obrigatório'),
+        .min(3, 'Name on card should have at least 3 characters')
+        .required('Name on card is required'),
       cardNumber: Yup.string()
-        .min(19, 'Número do cartão deve ter 19 caracteres')
-        .max(19, 'Número do cartão deve ter 19 caracteres')
-        .required('Número do cartão é obrigatório'),
+        .min(19, 'Card number should have 19 characters')
+        .max(19, 'Card number should have 19 characters')
+        .required('Card number is required'),
       cvv: Yup.string()
-        .min(3, 'CVV deve ter pelo menos 3 caracteres')
-        .max(3, 'CVV deve ter 3 caracteres')
-        .required('CVV é obrigatório'),
+        .min(3, 'CVV should have at least 3 characters')
+        .max(3, 'CVV should have 3 characters')
+        .required('CVV is required'),
       expirationMonth: Yup.number()
-        .typeError('Mês inválido')
-        .required('Mês obrigatório')
-        .min(1, 'Deve ser entre 1 e 12')
-        .max(12, 'Deve ser entre 1 e 12'),
+        .typeError('Invalid month')
+        .required('Month is required')
+        .min(1, 'Must be between 1 and 12')
+        .max(12, 'Must be between 1 and 12'),
       expirationYear: Yup.number()
-        .typeError('Ano inválido')
-        .required('Ano obrigatório')
-        .min(2025, 'Deve ser 2025 ou posterior')
+        .typeError('Invalid year')
+        .required('Year is required')
+        .min(2025, 'Must be 2025 or later')
     }),
     onSubmit: (values) => {
       purchase({
@@ -170,9 +170,9 @@ const Checkout = () => {
               <S.Form onSubmit={form.handleSubmit}>
                 {step === 'delivery' ? (
                   <>
-                    <S.FormTitle>Entrega</S.FormTitle>
+                    <S.FormTitle>Delivery</S.FormTitle>
                     <div className="input-group">
-                      <label htmlFor="name">Quem irá receber</label>
+                      <label htmlFor="name">Who will receive</label>
                       <input
                         className={checkInputsHasErrors('name') ? 'error' : ''}
                         name="name"
@@ -187,7 +187,7 @@ const Checkout = () => {
                       </small>
                     </div>
                     <div className="input-group">
-                      <label htmlFor="address">Endereço</label>
+                      <label htmlFor="address">Address</label>
                       <input
                         className={
                           checkInputsHasErrors('address') ? 'error' : ''
@@ -204,7 +204,7 @@ const Checkout = () => {
                       </small>
                     </div>
                     <div className="input-group">
-                      <label htmlFor="city">Cidade</label>
+                      <label htmlFor="city">City</label>
                       <input
                         className={checkInputsHasErrors('city') ? 'error' : ''}
                         name="city"
@@ -220,7 +220,7 @@ const Checkout = () => {
                     </div>
                     <div className="form-numbers">
                       <div className="input-group">
-                        <label htmlFor="zipCode">CEP</label>
+                        <label htmlFor="zipCode">Zip Code</label>
                         <IMaskInput
                           className={
                             checkInputsHasErrors('zipCode') ? 'error' : ''
@@ -239,7 +239,7 @@ const Checkout = () => {
                         </small>
                       </div>
                       <div className="input-group">
-                        <label htmlFor="postalCode">Número</label>
+                        <label htmlFor="postalCode">Number</label>
                         <IMaskInput
                           className={
                             checkInputsHasErrors('postalCode') ? 'error' : ''
@@ -259,7 +259,7 @@ const Checkout = () => {
                       </div>
                     </div>
                     <div className="input-group">
-                      <label htmlFor="complement">Complemento (opcional)</label>
+                      <label htmlFor="complement">Complement (optional)</label>
                       <input
                         className={
                           checkInputsHasErrors('complement') ? 'error' : ''
@@ -279,21 +279,18 @@ const Checkout = () => {
 
                     <div className="form-buttons">
                       <Btn onClick={() => validateDeliveryStep()}>
-                        <>Continuar com o pagamento</>
+                        <>Proceed to payment</>
                       </Btn>
                       <Btn onClick={backToCart}>
-                        <>Voltar para o carrinho</>
+                        <>Back to cart</>
                       </Btn>
                     </div>
                   </>
                 ) : (
                   <>
-                    <S.FormTitle>
-                      {' '}
-                      Pagamento - Valor a pagar {total}
-                    </S.FormTitle>
+                    <S.FormTitle>Payment - Amount to pay {total}</S.FormTitle>
                     <div className="input-group">
-                      <label htmlFor="cardName">Nome no cartão</label>
+                      <label htmlFor="cardName">Name on card</label>
                       <input
                         className={
                           checkInputsHasErrors('cardName') ? 'error' : ''
@@ -312,7 +309,7 @@ const Checkout = () => {
                     </div>
                     <div className="card-info-1">
                       <div className="input-group">
-                        <label htmlFor="cardNumber">Número no cartão</label>
+                        <label htmlFor="cardNumber">Card number</label>
                         <IMaskInput
                           className={
                             checkInputsHasErrors('cardNumber') ? 'error' : ''
@@ -342,7 +339,7 @@ const Checkout = () => {
                           type="text"
                           id="cvv"
                         />
-                        <small>
+                        <small className="cvv-error-msg">
                           {checkInputsHasErrors('cvv') && form.errors.cvv}
                         </small>
                       </div>
@@ -350,7 +347,7 @@ const Checkout = () => {
                     <div className="card-info-2">
                       <div className="input-group">
                         <label htmlFor="expirationMonth">
-                          Mês de Vencimento
+                          Expiration Month
                         </label>
                         <IMaskInput
                           className={
@@ -372,9 +369,7 @@ const Checkout = () => {
                         </small>
                       </div>
                       <div className="input-group">
-                        <label htmlFor="expirationYear">
-                          Ano de Vencimento
-                        </label>
+                        <label htmlFor="expirationYear">Expiration Year</label>
                         <IMaskInput
                           className={
                             checkInputsHasErrors('expirationYear')
@@ -398,10 +393,10 @@ const Checkout = () => {
 
                     <div className="form-buttons">
                       <Btn type="submit">
-                        <>Finalizar pagamento</>
+                        <>Finish payment</>
                       </Btn>
                       <Btn onClick={() => setStep('delivery')}>
-                        <>Voltar para a edição de endereço</>
+                        <>Back to address editing</>
                       </Btn>
                     </div>
                   </>
@@ -412,27 +407,27 @@ const Checkout = () => {
         ) : (
           <>
             <S.OrderFinish title="Thank You!">
-              <h3>Pedido Realizado - {data?.orderId}</h3>
+              <h3>Order Placed - {data?.orderId}</h3>
               <p>
-                Estamos felizes em informar que seu pedido já está em processo
-                de preparação e, em breve, será entregue no endereço fornecido.
+                We are happy to inform you that your order is already being
+                prepared and will soon be delivered to the provided address.
               </p>
               <p>
-                Gostaríamos de ressaltar que nossos entregadores não estão
-                autorizados a realizar cobranças extras.
+                We would like to emphasize that our delivery personnel are not
+                authorized to collect any additional charges.
               </p>
               <p>
-                Lembre-se da importância de higienizar as mãos após o
-                recebimento do pedido, garantindo assim sua segurança e
-                bem-estar durante a refeição.
+                Remember the importance of sanitizing your hands after receiving
+                the order, thus ensuring your safety and well-being during the
+                meal.
               </p>
               <p>
-                Esperamos que desfrute de uma deliciosa e agradável experiência
-                gastronômica. Bom apetite!
+                We hope you enjoy a delicious and pleasant dining experience.
+                Bon appétit!
               </p>
 
               <Btn type="link" to="/" onClick={closeCheckout}>
-                <>Concluir</>
+                <>Finish</>
               </Btn>
             </S.OrderFinish>
           </>

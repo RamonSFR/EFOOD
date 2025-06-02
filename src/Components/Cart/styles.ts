@@ -41,6 +41,11 @@ export const CartProduct = styled.li`
     right: 8px;
     cursor: pointer;
   }
+
+  img {
+    border-radius: 8px;
+    border: 1px solid ${c.beige1};
+  }
 `
 
 export const CartProductInfo = styled.div`

@@ -26,7 +26,7 @@ const Restaurant = ({ description, image, title, rating, id, type, highlighted =
   return (
     <S.Card title={`Click here to get see more of the restaurant ${title}`}>
       <S.TagContainer>
-        {highlighted && <S.Tag>Destaque da semana</S.Tag>}
+        {highlighted && <S.Tag>Highlight of the week</S.Tag>}
         <S.Tag>{type}</S.Tag>
       </S.TagContainer>
       <img src={image} alt="sushi" onClick={goToProduct} />
@@ -39,7 +39,7 @@ const Restaurant = ({ description, image, title, rating, id, type, highlighted =
         </div>
         <S.Description>{filterDescription(description, 198)}</S.Description>
         <Button onClick={goToProduct} variant="secondary">
-          <>Saiba mais</>
+          <>Check it out</>
         </Button>
       </S.Infos>
     </S.Card>

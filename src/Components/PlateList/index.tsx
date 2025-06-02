@@ -13,7 +13,7 @@ import type { RootReducer } from '../../store'
 import { close, open as openAddModal } from '../../store/reducers/modal'
 import { add, open as openCartModal } from '../../store/reducers/cart'
 import parseToUsd from '../../utils/functions/parseToUsd'
-import { useGetRestaurantByIdQuery } from '../../services/api'
+import { ApiPath, useGetRestaurantByIdQuery } from '../../services/api'
 import closeIco from '../../assets/images/icons/closeIco.png'
 
 import { colors as c } from '../../styles/GlobalStyle'
@@ -27,9 +27,9 @@ const PlateList = () => {
     (state: RootReducer) => state.modal
   )
   const dispatch = useDispatch()
-  const [selectedItem, setSelectedItem] = useState<CardapioItem | null>(null)
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null)
 
-  const selectItem = (item: CardapioItem) => {
+  const selectItem = (item: MenuItem) => {
     dispatch(openAddModal())
     setSelectedItem(item)
   }
@@ -39,7 +39,7 @@ const PlateList = () => {
     setSelectedItem(null)
   }
 
-  const addToCart = (item: CardapioItem) => {
+  const addToCart = (item: MenuItem) => {
     dispatch(add(item))
     dispatch(close())
     dispatch(openCartModal())
@@ -56,22 +56,22 @@ const PlateList = () => {
   return (
     <>
       <Hero
-        title={restaurant.titulo}
-        image={restaurant.capa}
-        type={restaurant.tipo}
+        title={restaurant.title}
+        image={`${ApiPath}${restaurant.cover}`}
+        type={restaurant.type}
       />
       <S.ListContainer>
         <div className="container">
           <S.ListItems>
-            {restaurant.cardapio.map((item) => (
+            {restaurant.menu.map((item) => (
               <li key={item.id}>
                 <Plate
-                  description={item.descricao}
+                  description={item.description}
                   id={item.id}
-                  image={item.foto}
-                  title={item.nome}
-                  price={item.preco}
-                  serving={item.porcao}
+                  image={`${ApiPath}${item.picture}`}
+                  title={item.name}
+                  price={item.price}
+                  serving={item.serving}
                   onClick={() => selectItem(item)}
                 />
               </li>
@@ -89,13 +89,13 @@ const PlateList = () => {
               onClick={closeAddModal}
             />
             <>
-              <S.ModalImage src={selectedItem.foto} />
+              <S.ModalImage src={`${ApiPath}${selectedItem.picture}`} />
               <S.ModalInfos>
-                <h4>{selectedItem.nome}</h4>
-                <p>{selectedItem.descricao}</p>
-                <span>{`Porção: ${selectedItem.porcao}`}</span>
+                <h4>{selectedItem.name}</h4>
+                <p>{selectedItem.description}</p>
+                <span>{`Serving: ${selectedItem.serving}`}</span>
                 <Button onClick={() => addToCart(selectedItem)}>
-                  <>Adicionar ao carrinho - {parseToUsd(selectedItem.preco)}</>
+                  <>Add to cart - {parseToUsd(selectedItem.price)}</>
                 </Button>
               </S.ModalInfos>
             </>
