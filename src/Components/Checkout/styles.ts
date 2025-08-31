@@ -114,3 +114,13 @@ export const OrderFinish = styled.div`
     line-height: 22px;
   }
 `
+
+export const Disclaimer = styled.div`
+  text-align: center;
+  position: absolute;
+  bottom: 24px;
+  font-size: 12px;
+  font-weight: 100;
+  line-height: 18px;
+  color: ${c.beige1};
+`

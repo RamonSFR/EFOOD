@@ -432,6 +432,11 @@ const Checkout = () => {
             </S.OrderFinish>
           </>
         )}
+        <S.Disclaimer>
+          This checkout page is a simulation — no data is saved, stored, or used
+          for real payments. The purchase is not completed; this is only a demo
+          experience.
+        </S.Disclaimer>
       </S.ModalContainer>
     </Modal>
   )
